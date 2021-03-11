@@ -1,0 +1,25 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EMS.Models.Employee[]
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <h1>List of Employees</h1>
+    <div>
+        <ul>
+            @foreach (var item in Model)
+            {
+            <li><a asp-action="Details" asp-route-id="@item.ID">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+    <a asp-controller="Employees" asp-action="Create">Add Employee</a>
+</body>
+</html>
