@@ -28,6 +28,7 @@ namespace EMS
             }
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
