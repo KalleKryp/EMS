@@ -1,5 +1,5 @@
 ﻿
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&display=swap');
 
 * {
     margin: 0;
@@ -50,4 +50,5 @@ footer {
 .separator {
     margin: 10px;
     background-color: black;
+    max-width: 300px;
 }
