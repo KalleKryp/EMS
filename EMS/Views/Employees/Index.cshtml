@@ -1,4 +1,4 @@
-﻿@model Employee[]
+﻿@model EmployeesIndexVM[]
 
 @{ ViewBag.Title = "List of Employees";}
 
@@ -7,7 +7,7 @@
             @foreach (var item in Model)
             {
             <li>
-                <a asp-action="Details" asp-route-id="@item.ID">@item.Name</a>
+                <a style="@(item.ShowAsHighlighted ? "color: red;" : "")" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
                 <hr class="separator" />
             </li>
             }

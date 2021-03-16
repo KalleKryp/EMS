@@ -1,4 +1,6 @@
 ﻿using EMS.Models;
+using EMS.Models.Entities;
+using EMS.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,14 @@ namespace EMS.Controllers
 {
     public class EmployeesController : Controller
     {
-        EmployeeService service = new EmployeeService();
+        EmployeeService service;
+        IContentService contentService;
+
+        public EmployeesController(EmployeeService service, IContentService contentService)
+        {
+            this.service = service;
+            this.contentService = contentService;
+        }
 
         [Route("")]
         [Route("employees/index")]
@@ -17,6 +26,13 @@ namespace EMS.Controllers
         {
             var emps = service.GetAllEmployees();
             return View(emps);
+        }
+
+
+        [Route("about")]
+        public IActionResult About()
+        {
+            return View(contentService);
         }
 
 
@@ -31,7 +47,7 @@ namespace EMS.Controllers
         //En action - svarar på ett HTTP-anrop
         [Route("employees/create")]
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(EmployeesCreateVM employee)
         {
             if (!ModelState.IsValid)
                 return View(employee);
@@ -40,6 +56,8 @@ namespace EMS.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
 
         [Route("employees/details/{id}")]
         public IActionResult Details(int id)

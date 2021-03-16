@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EMS.Models.Entities;
+using EMS.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,24 +9,42 @@ namespace EMS.Models
 {
     public class EmployeeService
     {
-        public static List<Employee> employees = new List<Employee>();
+        //public List<Employee> employees = new List<Employee>();
 
-        static int idCounter = 1;
+        //static int idCounter = 1;
 
-        public void AddEmployee(Employee emp)
+        private MyContext context;
+
+        public EmployeeService(MyContext context)
         {
-            emp.ID = idCounter++;
-            employees.Add(emp);
+            this.context = context;
+        }
+        public void AddEmployee(EmployeesCreateVM viewModel)
+        {
+            //emp.ID = idCounter++;
+            context.Employees.Add( new Employee
+            {
+                Name = viewModel.Name,
+                Email = viewModel.Email
+            });
+
+            context.SaveChanges();
         }
 
-        public Employee[] GetAllEmployees()
+        public EmployeesIndexVM[] GetAllEmployees()
         {
-            return employees.ToArray();
+            return context.Employees.Select(e => new EmployeesIndexVM
+            {
+                Id = e.Id,
+                Name = e.Name,
+                Email = e.Email,
+                ShowAsHighlighted = e.Email.ToLower().StartsWith("admin")
+            }).ToArray();
         }
 
         public Employee GetEmployeeById(int id)
         {
-            return employees.FirstOrDefault(e => e.ID == id);
+            return context.Employees.FirstOrDefault(e => e.Id == id);
         }
     }
 }

@@ -1,3 +1,4 @@
+using EMS.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EMS.Utilities;
+using EMS.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EMS
 {
@@ -17,6 +21,12 @@ namespace EMS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<EmployeeService>();
+            services.AddTransient<IContentService, DevContentService>();
+
+            var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EmployeesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddDbContext<MyContext>(o => o.UseSqlServer(connString));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

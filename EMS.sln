@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS", "EMS\EMS.csproj", "{A4052DAE-5521-4194-9F9C-75D80F0F46EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EMS", "EMS\EMS.csproj", "{A4052DAE-5521-4194-9F9C-75D80F0F46EA}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EmployeeDatabase", "EmployeeDatabase\EmployeeDatabase.sqlproj", "{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{A4052DAE-5521-4194-9F9C-75D80F0F46EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4052DAE-5521-4194-9F9C-75D80F0F46EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4052DAE-5521-4194-9F9C-75D80F0F46EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D61D6BF-2DB7-45A6-A55D-DB3B6AFFB3B2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
